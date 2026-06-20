@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUREON — Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="logo"><i data-lucide="trending-up" style="width:22px;color:#4b9bff"></i></span>
+      <span><b style="font-size:18px">AUREON</b><small>TRADING ACADEMY</small></span>
+    </div>
+
+    <div class="sb-group">
+      <a class="sb-item active"><i data-lucide="home"></i>Accueil</a>
+    </div>
+    <div class="sb-group">
+      <div class="t">MARCHÉS</div>
+      <a class="sb-item"><i data-lucide="dollar-sign"></i>Forex</a>
+      <a class="sb-item"><i data-lucide="bitcoin"></i>Crypto</a>
+      <a class="sb-item"><i data-lucide="gem"></i>Métaux</a>
+      <a class="sb-item"><i data-lucide="line-chart"></i>Indices</a>
+      <a class="sb-item"><i data-lucide="fuel"></i>Matières Premières</a>
+      <a class="sb-item"><i data-lucide="activity"></i>Force des Devises<span class="badge-new">LIVE</span></a>
+      <a class="sb-item"><i data-lucide="calendar"></i>Calendrier Économique</a>
+    </div>
+    <div class="sb-group">
+      <div class="t">FORMATION &amp; APPRENTISSAGE</div>
+      <a class="sb-item active"><i data-lucide="graduation-cap"></i>Parcours Débutant<span class="badge-new">NEW</span></a>
+      <a class="sb-item"><i data-lucide="video"></i>Cours Vidéo</a>
+      <a class="sb-item"><i data-lucide="radio"></i>Webinaires Live</a>
+      <a class="sb-item"><i data-lucide="help-circle"></i>Quiz &amp; Exercices</a>
+      <a class="sb-item"><i data-lucide="monitor"></i>Compte Démo</a>
+      <a class="sb-item"><i data-lucide="award"></i>Examen &amp; Certification</a>
+      <a class="sb-item"><i data-lucide="bar-chart-2"></i>Progression</a>
+    </div>
+    <div class="sb-group">
+      <div class="t">BIBLIOTHÈQUE</div>
+      <a class="sb-item"><i data-lucide="candlestick-chart"></i>Analyse Technique</a>
+      <a class="sb-item"><i data-lucide="layers"></i>ICT &amp; SMC</a>
+      <a class="sb-item"><i data-lucide="waves"></i>Order Flow</a>
+      <a class="sb-item"><i data-lucide="brain"></i>Psychologie</a>
+      <a class="sb-item"><i data-lucide="shield"></i>Gestion du Risque</a>
+      <a class="sb-item"><i data-lucide="wrench"></i>Outils &amp; Indicateurs</a>
+      <a class="sb-item"><i data-lucide="book"></i>Livres &amp; PDF</a>
+    </div>
+    <div class="sb-group">
+      <div class="t">OUTILS &amp; COMMUNAUTÉ</div>
+      <a class="sb-item"><i data-lucide="bot"></i>Bots de Trading</a>
+      <a class="sb-item"><i data-lucide="users"></i>Communauté</a>
+    </div>
+
+    <div class="vip-card">
+      <i data-lucide="crown"></i>
+      <h4>OFFRE VIP</h4>
+      <p>Accédez à toutes les fonctionnalités<br>Bibliothèque + Formations + Bots</p>
+      <button>DEVENIR MEMBRE VIP</button>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-toggle" id="menuBtn"><i data-lucide="menu"></i></button>
+      <div class="tabs">
+        <a class="active">ACCUEIL</a><a>MARCHÉS</a><a>FORMATIONS</a>
+        <a>BIBLIOTHÈQUE</a><a>BOTS</a><a>COMMUNAUTÉ</a>
+      </div>
+      <div class="right">
+        <button class="icon-btn"><i data-lucide="bell"></i><span class="dot">3</span></button>
+        <!-- Auth zone (rendered by auth.js) -->
+        <div id="authZone" class="auth-zone"></div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- FORMATION EN LIGNE -->
+      <section>
+        <div class="sec-head">
+          <div class="sec-title"><i data-lucide="graduation-cap" style="width:18px;color:#4b9bff"></i>
+            FORMATION EN LIGNE — DE DÉBUTANT À TRADER RENTABLE <span class="badge-new">NOUVEAU</span></div>
+        </div>
+        <div class="formation-grid">
+          <div class="glass fcard">
+            <div class="fh"><div class="fi"><i data-lucide="sparkles"></i></div>
+              <div><div class="ft">DÉBUTANT</div><div class="fs">Les bases du trading</div></div></div>
+            <ul><li><i data-lucide="check"></i>Introduction au trading</li>
+              <li><i data-lucide="check"></i>Marchés financiers</li>
+              <li><i data-lucide="check"></i>Types d'ordres</li>
+              <li><i data-lucide="check"></i>Gestion des risques</li></ul>
+            <div class="meta"><span>12 Leçons</span><span class="up">100%</span></div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <button class="fbtn">COMMENCER</button>
+          </div>
+          <div class="glass fcard">
+            <div class="fh"><div class="fi"><i data-lucide="flame"></i></div>
+              <div><div class="ft">INTERMÉDIAIRE</div><div class="fs">Analyse &amp; Stratégies</div></div></div>
+            <ul><li><i data-lucide="check"></i>Analyse technique</li>
+              <li><i data-lucide="check"></i>Supports &amp; Résistances</li>
+              <li><i data-lucide="check"></i>Indicateurs essentiels</li>
+              <li><i data-lucide="check"></i>Stratégies de base</li></ul>
+            <div class="meta"><span>18 Leçons</span><span>75%</span></div>
+            <div class="bar"><i style="width:75%"></i></div>
+            <button class="fbtn ghost">CONTINUER</button>
+          </div>
+          <div class="glass fcard">
+            <div class="fh"><div class="fi"><i data-lucide="rocket"></i></div>
+              <div><div class="ft">AVANCÉ</div><div class="fs">Techniques avancées</div></div></div>
+            <ul><li><i data-lucide="check"></i>Order Flow</li>
+              <li><i data-lucide="check"></i>ICT &amp; Smart Money</li>
+              <li><i data-lucide="check"></i>Price Action avancée</li>
+              <li><i data-lucide="check"></i>Stratégies avancées</li></ul>
+            <div class="meta"><span>20 Leçons</span><span>45%</span></div>
+            <div class="bar"><i style="width:45%"></i></div>
+            <button class="fbtn ghost">CONTINUER</button>
+          </div>
+          <div class="glass fcard">
+            <div class="fh"><div class="fi"><i data-lucide="crown"></i></div>
+              <div><div class="ft">EXPERT</div><div class="fs">Maîtrise &amp; Rentabilité</div></div></div>
+            <ul><li><i data-lucide="check"></i>Gestion de portefeuille</li>
+              <li><i data-lucide="check"></i>Psychologie du trader</li>
+              <li><i data-lucide="check"></i>Trading algorithmique</li>
+              <li><i data-lucide="check"></i>Devenir rentable</li></ul>
+            <div class="meta"><span>15 Leçons</span><span>0%</span></div>
+            <div class="bar"><i style="width:0%"></i></div>
+            <button class="fbtn">COMMENCER</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW: webinar + progression -->
+      <section class="grid-2">
+        <div class="glass webinar">
+          <div class="ch"><span class="sec-title" style="font-size:13px"><i data-lucide="radio" style="width:16px;color:#4b9bff"></i> WEBINAIRES LIVE</span>
+            <span class="sec-title"><span class="live">● LIVE</span></span></div>
+          <div style="font-size:11px;color:var(--muted)">Sessions en direct avec nos experts</div>
+          <div class="big grad-blue">LIVE TRADING</div>
+          <div style="font-size:12px;color:var(--muted)">TOUS LES JOURS · 20:00 (GMT+1)</div>
+          <div class="countdown">
+            <div class="cd"><b id="cd-h">02</b><span>HEURES</span></div>
+            <div class="cd"><b id="cd-m">15</b><span>MIN</span></div>
+            <div class="cd"><b id="cd-s">30</b><span>SEC</span></div>
+          </div>
+          <button class="fbtn">REJOINDRE LE LIVE</button>
+        </div>
+        <div class="glass card">
+          <div class="ch"><span><i data-lucide="bar-chart-2" style="width:16px;color:#4b9bff;vertical-align:-3px"></i> VOTRE PROGRESSION</span></div>
+          <div class="ring-wrap">
+            <div style="position:relative;width:120px;height:120px">
+              <canvas id="progRing" width="120" height="120"></canvas>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center">
+                <div><div style="font-size:24px;font-weight:900;color:#4b9bff">65%</div>
+                <div style="font-size:8px;color:var(--muted)">PROGRESSION GLOBALE</div></div>
+              </div>
+            </div>
+            <div style="flex:1">
+              <div class="progstat"><i data-lucide="book-open"></i><div><b>45</b> <span>Leçons terminées</span></div></div>
+              <div class="progstat"><i data-lucide="clock"></i><div><b>28h</b> <span>Temps d'apprentissage</span></div></div>
+              <div class="progstat"><i data-lucide="award"></i><div><b>7</b> <span>Certificats obtenus</span></div></div>
+            </div>
+          </div>
+          <button class="section-foot">VOIR MA PROGRESSION</button>
+        </div>
+      </section>
+
+      <!-- ROW: live markets + price chart -->
+      <section class="grid-markets">
+        <div class="glass card">
+          <div class="ch"><span class="sec-title" style="font-size:13px">MARCHÉS EN DIRECT <span class="live">DONNÉES RÉELLES</span></span>
+            <span id="mktUpdated" class="mkt-updated">—</span></div>
+          <div class="tf" id="mktTabs" style="margin-bottom:10px">
+            <button class="active" data-tab="forex">FOREX</button><button data-tab="crypto">CRYPTO</button><button data-tab="metals">MÉTAUX</button>
+          </div>
+          <table id="marketTable">
+            <thead><tr><th>ACTIF</th><th>PRIX</th><th>VAR</th><th>DERNIÈRE MAJ</th></tr></thead>
+            <tbody><tr><td colspan="4" style="color:var(--muted);padding:16px 0">Chargement des données réelles…</td></tr></tbody>
+          </table>
+          <div class="mkt-source" id="mktSource"></div>
+        </div>
+
+        <div class="glass card">
+          <div class="ch"><span>APERÇU DU MARCHÉ · <span id="chartSym">EUR/USD</span></span>
+            <span class="mkt-updated">30 jours · source ECB</span></div>
+          <canvas id="priceChart" height="240"></canvas>
+        </div>
+      </section>
+
+      <!-- ROW: currency strength + economic calendar -->
+      <section class="grid-2">
+        <div class="glass card">
+          <div class="ch"><span>FORCE RELATIVE DES DEVISES</span><span id="csUpdated" class="mkt-updated">—</span></div>
+          <div style="display:grid;grid-template-columns:1fr 200px;gap:18px;align-items:center" class="cs-wrap">
+            <div id="strengthBars"><div style="color:var(--muted);font-size:12px">Calcul à partir des variations réelles…</div></div>
+            <div style="position:relative;height:200px"><canvas id="radarChart"></canvas></div>
+          </div>
+          <div class="mkt-source">Calculée à partir des variations quotidiennes réelles (BCE/Frankfurter)</div>
+        </div>
+        <div class="glass card">
+          <div class="ch"><span><i data-lucide="calendar" style="width:15px;color:#4b9bff;vertical-align:-3px"></i> CALENDRIER ÉCONOMIQUE</span><span id="calUpdated" class="mkt-updated">cette semaine</span></div>
+          <div id="calendarList"><div style="color:var(--muted);font-size:12px;padding:8px 0">Chargement du calendrier réel…</div></div>
+          <div class="mkt-source">Source : ForexFactory (faireconomy) · semaine en cours</div>
+        </div>
+      </section>
+
+      <!-- ROW: library + bots + stats + community -->
+      <section class="grid-4">
+        <div class="glass card">
+          <div class="ch"><span>BIBLIOTHÈQUE POPULAIRE</span></div>
+          <div class="lib-row"><div class="ic"><i data-lucide="layers"></i></div><div class="nm"><b>ICT - Concepts Avancés</b><div class="star">★ 4.9</div></div><i data-lucide="download" style="width:15px;color:var(--muted)"></i></div>
+          <div class="lib-row"><div class="ic"><i data-lucide="waves"></i></div><div class="nm"><b>Order Flow - Guide Complet</b><div class="star">★ 4.8</div></div><i data-lucide="download" style="width:15px;color:var(--muted)"></i></div>
+          <div class="lib-row"><div class="ic"><i data-lucide="trending-up"></i></div><div class="nm"><b>SMC - De Zéro à Héros</b><div class="star">★ 4.9</div></div><i data-lucide="download" style="width:15px;color:var(--muted)"></i></div>
+          <div class="lib-row"><div class="ic"><i data-lucide="candlestick-chart"></i></div><div class="nm"><b>Analyse Technique Avancée</b><div class="star">★ 4.7</div></div><i data-lucide="download" style="width:15px;color:var(--muted)"></i></div>
+          <button class="section-foot">VOIR TOUTE LA BIBLIOTHÈQUE</button>
+        </div>
+        <div class="glass card">
+          <div class="ch"><span>BOTS DE TRADING</span></div>
+          <div class="bot-row"><div class="ic"><i data-lucide="bot"></i></div><div class="nm"><b>Bot Forex Pro</b><div style="font-size:10px;color:var(--muted)">Forex</div></div><span class="status">Actif</span></div>
+          <div class="bot-row"><div class="ic"><i data-lucide="gem"></i></div><div class="nm"><b>Bot Or (XAUUSD)</b><div style="font-size:10px;color:var(--muted)">Métaux</div></div><span class="status">Actif</span></div>
+          <div class="bot-row"><div class="ic"><i data-lucide="bitcoin"></i></div><div class="nm"><b>Bot Crypto Pro</b><div style="font-size:10px;color:var(--muted)">Crypto</div></div><span class="status">Actif</span></div>
+          <div class="bot-row"><div class="ic"><i data-lucide="line-chart"></i></div><div class="nm"><b>Bot Indices</b><div style="font-size:10px;color:var(--muted)">Indices</div></div><span class="status">Actif</span></div>
+          <button class="section-foot">VOIR TOUS LES BOTS</button>
+        </div>
+        <div class="glass card">
+          <div class="ch"><span>STATISTIQUES D'APPRENTISSAGE</span></div>
+          <div class="kpi"><span style="color:var(--muted)">LEÇONS COMPLÉTÉES</span><span class="v">45</span></div>
+          <div class="kpi"><span style="color:var(--muted)">HEURES D'APPRENTISSAGE</span><span class="v green">28h</span></div>
+          <div class="kpi"><span style="color:var(--muted)">CERTIFICATS OBTENUS</span><span class="v green">7</span></div>
+          <div class="kpi"><span style="color:var(--muted)">MEMBRES ACTIFS</span><span class="v">2,543</span></div>
+          <canvas id="statsChart" height="90" style="margin-top:12px"></canvas>
+          <button class="section-foot">VOIR MES STATISTIQUES</button>
+        </div>
+        <div class="glass card">
+          <div class="ch"><span>COMMUNAUTÉ</span></div>
+          <div class="comm"><span class="l"><i data-lucide="users"></i>Membres actifs</span><span class="v">2,543</span></div>
+          <div class="comm"><span class="l"><i data-lucide="message-square"></i>Discussions aujourd'hui</span><span class="v">156</span></div>
+          <div class="comm"><span class="l"><i data-lucide="help-circle"></i>Questions répondues</span><span class="v">89</span></div>
+          <div class="comm"><span class="l"><i data-lucide="share-2"></i>Partages de ressources</span><span class="v">234</span></div>
+          <button class="section-foot solid">REJOINDRE LA COMMUNAUTÉ</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+<script src="auth.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
