@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUREON — Inscription</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="scene auth-page">
+  <div class="auth-card glass">
+    <div class="auth-brand">
+      <span class="logo"><i data-lucide="trending-up" style="width:24px;color:#4b9bff"></i></span>
+      <span><b>AUREON</b><small>TRADING ACADEMY</small></span>
+    </div>
+    <h1>Créer un compte</h1>
+    <p class="auth-sub">Rejoignez l'académie en quelques secondes</p>
+
+    <form id="registerForm" novalidate>
+      <label>Nom complet
+        <div class="field"><i data-lucide="user"></i>
+          <input type="text" id="name" autocomplete="name" placeholder="Votre nom" required></div>
+      </label>
+      <label>E-mail
+        <div class="field"><i data-lucide="mail"></i>
+          <input type="email" id="email" autocomplete="email" placeholder="vous@exemple.com" required></div>
+      </label>
+      <label>Mot de passe
+        <div class="field"><i data-lucide="lock"></i>
+          <input type="password" id="password" autocomplete="new-password" placeholder="6 caractères minimum" required>
+          <button type="button" class="toggle-pw" data-for="password"><i data-lucide="eye"></i></button></div>
+      </label>
+      <label>Confirmer le mot de passe
+        <div class="field"><i data-lucide="lock"></i>
+          <input type="password" id="confirm" autocomplete="new-password" placeholder="••••••••" required></div>
+      </label>
+
+      <div id="msg" class="auth-msg"></div>
+      <button type="submit" class="btn btn-primary auth-submit">CRÉER MON COMPTE</button>
+    </form>
+
+    <div class="auth-foot">Déjà inscrit ? <a href="login.html">Se connecter</a></div>
+    <a class="auth-back" href="index.html"><i data-lucide="arrow-left" style="width:14px"></i> Retour au tableau de bord</a>
+  </div>
+<script src="auth.js"></script>
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.querySelectorAll('.toggle-pw').forEach(b => b.onclick = () => {
+    const inp = document.getElementById(b.dataset.for);
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+  });
+  const form = document.getElementById('registerForm');
+  const msg = document.getElementById('msg');
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+    msg.className = 'auth-msg';
+    msg.textContent = '';
+    const pw = document.getElementById('password').value;
+    const cf = document.getElementById('confirm').value;
+    if (pw !== cf) { msg.className = 'auth-msg err'; msg.textContent = 'Les mots de passe ne correspondent pas.'; return; }
+    try {
+      await AUREON_AUTH.register({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: pw,
+      });
+      msg.className = 'auth-msg ok';
+      msg.textContent = 'Compte créé, redirection…';
+      setTimeout(() => location.href = 'index.html', 600);
+    } catch (err) {
+      msg.className = 'auth-msg err';
+      msg.textContent = err.message;
+    }
+  };
+</script>
+</body>
+</html>
